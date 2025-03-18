@@ -21,10 +21,12 @@
   ],
   "main": "./dist/src/index.js",
   "scripts": {
-    "vscode:prepublish": "npm run compile",
+    "start": "node dist/src/index.js",
+    "dev": "nodemon --watch dist dist/src/index.js",
+    "vscode:prepublish": "npm run compile && node dist/src/index.js",
     "compile": "tsc -p ./",
     "lint": "eslint \"src/**/*.ts\"",
-    "watch": "tsc -w -p ./"
+    "watch": "tsc -w"
   },
   "dependencies": {
     "async": "^3.2.4",
@@ -39,11 +41,15 @@
     "simple-git": "^3.17.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.22.0",
     "@typescript-eslint/eslint-plugin": "^6.7.0",
     "@typescript-eslint/parser": "^6.7.0",
-    "eslint": "^8.46.0",
+    "eslint": "^8.57.1",
     "eslint-config-google": "^0.14.0",
+    "globals": "^16.0.0",
     "jsdoc": "^4.0.2",
-    "typescript": "^5.4.5"
+    "nodemon": "^3.1.9",
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^8.26.0"
   }
 }
