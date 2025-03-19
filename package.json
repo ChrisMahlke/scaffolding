@@ -22,15 +22,15 @@
   "main": "./dist/src/index.js",
   "scripts": {
     "start": "node dist/src/index.js",
-    "dev": "cross-env NODE_ENV=development nodemon --watch dist dist/src/index.js",
+    "dev": "nodemon --ext ts --watch src --exec ts-node src/index.ts",
     "vscode:prepublish": "npm run compile && node dist/src/index.js",
     "compile": "tsc -p ./",
     "lint": "eslint \"src/**/*.ts\"",
     "watch": "tsc -w",
     "prepare": "husky install",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test": "jest --verbose",
+    "test:watch": "jest --watch --verbose",
+    "test:coverage": "jest --coverage --verbose"
   },
   "lint-staged": {
     "**/*.ts": [
@@ -39,12 +39,14 @@
     ]
   },
   "dependencies": {
+    "@types/express": "^5.0.0",
     "async": "^3.2.4",
     "compression": "^1.8.0",
     "compromise": "^14.8.2",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "ejs": "^3.1.9",
-    "express": "^4.18.2",
+    "express": "^4.21.2",
     "fuse.js": "^6.6.2",
     "helmet": "^8.1.0",
     "inquirer": "^8.2.6",
@@ -55,8 +57,10 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",
-    "@types/express": "^5.0.0",
+    "@types/compression": "^1.7.5",
+    "@types/cors": "^2.8.17",
     "@types/jest": "^29.5.14",
+    "@types/supertest": "^6.0.2",
     "@typescript-eslint/eslint-plugin": "^6.7.0",
     "@typescript-eslint/parser": "^6.7.0",
     "cross-env": "^7.0.3",
@@ -71,7 +75,9 @@
     "lint-staged": "^15.5.0",
     "nodemon": "^3.1.9",
     "prettier": "^3.5.3",
+    "supertest": "^7.0.0",
     "ts-jest": "^29.2.6",
+    "ts-node": "^10.9.2",
     "typescript": "^5.4.5",
     "typescript-eslint": "^8.26.0"
   }
