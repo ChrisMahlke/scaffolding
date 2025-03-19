@@ -26,7 +26,14 @@
     "vscode:prepublish": "npm run compile && node dist/src/index.js",
     "compile": "tsc -p ./",
     "lint": "eslint \"src/**/*.ts\"",
-    "watch": "tsc -w"
+    "watch": "tsc -w",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "**/*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "async": "^3.2.4",
@@ -46,9 +53,14 @@
     "@typescript-eslint/parser": "^6.7.0",
     "eslint": "^8.57.1",
     "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-prettier": "^5.2.3",
     "globals": "^16.0.0",
+    "husky": "^9.1.7",
     "jsdoc": "^4.0.2",
+    "lint-staged": "^15.5.0",
     "nodemon": "^3.1.9",
+    "prettier": "^3.5.3",
     "typescript": "^5.4.5",
     "typescript-eslint": "^8.26.0"
   }
