@@ -1,7 +1,3 @@
-Here's your **updated README** with additional details about **routes, API testing, debugging, and future improvements**:
-
----
-
 # **TypeScript Project**
 
 ## **📌 Description**
