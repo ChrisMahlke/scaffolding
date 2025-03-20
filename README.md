@@ -1,12 +1,14 @@
-# **TypeScript Project**
+## Scaffolding
 
-## **📌 Description**
+### 📌 Description
 
-This is a **TypeScript-based Express API project** with a fully configured development environment, including **Jest for testing**, **ESLint & Prettier for linting**, and various utilities to enhance scalability and maintainability.
+This is a **TypeScript-based Express API project** with a fully configured development environment, including
+**Jest for testing**, **ESLint & Prettier for linting**, and various utilities to enhance scalability and
+maintainability.
 
 ---
 
-## **🚀 Features**
+### 🚀 Features
 
 - **TypeScript** – Strongly typed JavaScript for better maintainability.
 - **Express** – Fast and minimal web framework for building APIs.
@@ -18,9 +20,9 @@ This is a **TypeScript-based Express API project** with a fully configured devel
 
 ---
 
-## **🛠️ Installation**
+### 🛠️ Installation
 
-### **Prerequisites**
+#### Prerequisites
 
 Ensure you have the following installed:
 
@@ -28,14 +30,14 @@ Ensure you have the following installed:
 - [npm](https://www.npmjs.com/) (included with Node.js)
 - [Git](https://git-scm.com/)
 
-### **Clone the Repository**
+#### Clone the Repository
 
 ```sh
-git clone https://github.com/ChrisMahlke/typescript-project.git
-cd typescript-project
+git clone https://github.com/ChrisMahlke/scaffolding.git
+cd scaffolding
 ```
 
-### **Install Dependencies**
+#### Install Dependencies
 
 ```sh
 npm install
@@ -43,9 +45,9 @@ npm install
 
 ---
 
-## **🚀 Usage**
+### 🚀 Usage
 
-### **Development Server**
+#### Development Server
 
 ```sh
 npm run dev
@@ -53,7 +55,7 @@ npm run dev
 
 Starts the server with **Nodemon** for automatic reloads.
 
-### **Compiling TypeScript**
+#### Compiling TypeScript
 
 ```sh
 npm run compile
@@ -61,7 +63,7 @@ npm run compile
 
 Generates JavaScript files in the `dist/` directory.
 
-### **Running Tests**
+#### Running Tests
 
 Run Jest unit tests:
 
@@ -81,7 +83,7 @@ Run Jest in verbose mode:
 npm run test -- --verbose
 ```
 
-### **Linting and Formatting**
+#### Linting and Formatting
 
 Check for lint errors:
 
@@ -109,11 +111,11 @@ npx prettier --write "src/**/*.ts"
 
 ---
 
-## **📌 API Routes**
+### 📌 API Routes
 
 The project includes a **basic Express API**. The following endpoints are available:
 
-### **1️⃣ Get all users**
+#### 1️⃣ Get all users
 
 **GET `/users`**
 
@@ -125,7 +127,7 @@ Response:
 ]
 ```
 
-### **2️⃣ Get a specific user**
+#### 2️⃣ Get a specific user
 
 **GET `/users/:id`**
 
@@ -149,7 +151,7 @@ Response:
 
 ---
 
-## **🛠️ API Testing with Supertest**
+### 🛠️ API Testing with Supertest
 
 The API routes are **unit-tested using Jest and Supertest**.
 
@@ -171,10 +173,10 @@ it('should return a single user', async () => {
 
 ---
 
-## **📂 Folder Structure**
+### 📂 Folder Structure
 
 ```
-typescript-project/
+scaffolding/
 ├── src/
 │   ├── index.ts       # Main entry file
 │   ├── routes/        # API routes
@@ -192,9 +194,9 @@ typescript-project/
 
 ---
 
-## **📌 Debugging Tips**
+### 📌 Debugging Tips
 
-### **1️⃣ Debug Express Server**
+#### 1️⃣ Debug Express Server
 
 Add `console.log()` statements in `src/index.ts`:
 
@@ -208,7 +210,7 @@ Start the server and check the output:
 npm run dev
 ```
 
-### **2️⃣ Debug Tests**
+#### 2️⃣ Debug Tests
 
 Run Jest with detailed output:
 
@@ -216,7 +218,7 @@ Run Jest with detailed output:
 npm run test -- --verbose
 ```
 
-### **3️⃣ Debug API Requests**
+#### 3️⃣ Debug API Requests
 
 Use **Postman**, **cURL**, or:
 
@@ -226,7 +228,7 @@ npx httpie get http://localhost:3000/users
 
 ---
 
-## **📌 Git Hooks (Husky & lint-staged)**
+### 📌 Git Hooks (Husky & lint-staged)
 
 Husky prevents commits with linting errors. To test:
 
@@ -239,7 +241,7 @@ If there are lint errors, the commit will be blocked.
 
 ---
 
-## **📌 Contributing**
+### 📌 Contributing
 
 1. Fork the repository.
 2. Create a new branch:
@@ -258,13 +260,13 @@ If there are lint errors, the commit will be blocked.
 
 ---
 
-## **📜 License**
+### 📜 License
 
 This project is licensed under the **MIT License**. See `LICENSE` for details.
 
 ---
 
-### **🚀 Future Improvements**
+### 🚀 Future Improvements
 
 - ✅ **Add database integration (MongoDB or PostgreSQL)**
 - ✅ **Implement authentication (JWT or OAuth)**
