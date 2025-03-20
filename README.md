@@ -1,28 +1,35 @@
-## Scaffolding
+# **Scaffolding**
 
-### 📌 Description
+### **📌 Description**
 
-This is a **TypeScript-based Express API project** with a fully configured development environment, including
-**Jest for testing**, **ESLint & Prettier for linting**, and various utilities to enhance scalability and
-maintainability.
+This is a **TypeScript-based Express API project** with a fully configured development environment, including:
+
+- ✅ **Jest for testing**
+- ✅ **ESLint & Prettier for linting**
+- ✅ **Middleware for authentication, logging, and error handling**
+- ✅ **Supertest for API validation**
+- ✅ **Modular, scalable code structure**
+
+This project serves as both a **starter template** and an **educational resource** for learning **TypeScript, Express, testing, and middleware concepts**.
 
 ---
 
-### 🚀 Features
+## **🚀 Features**
 
-- **TypeScript** – Strongly typed JavaScript for better maintainability.
-- **Express** – Fast and minimal web framework for building APIs.
-- **ESLint & Prettier** – Ensures code quality and formatting.
-- **Jest & Supertest** – Supports unit testing and API testing.
+- **TypeScript** – Strongly typed JavaScript for maintainability.
+- **Express.js** – Minimalist web framework for building APIs.
+- **ESLint & Prettier** – Ensures code quality and consistent formatting.
+- **Jest & Supertest** – Supports unit testing and API validation.
 - **Nodemon** – Watches for file changes and restarts automatically.
+- **Middleware System** – Handles authentication, logging, and errors.
 - **Husky & lint-staged** – Pre-commit hooks for enforcing code quality.
-- **CORS & Security Middleware** – Uses Helmet and Compression for API security and performance.
+- **Security Enhancements** – Uses Helmet and Compression for security and performance.
 
 ---
 
-### 🛠️ Installation
+## **🛠️ Installation**
 
-#### Prerequisites
+### **Prerequisites**
 
 Ensure you have the following installed:
 
@@ -30,14 +37,14 @@ Ensure you have the following installed:
 - [npm](https://www.npmjs.com/) (included with Node.js)
 - [Git](https://git-scm.com/)
 
-#### Clone the Repository
+### **Clone the Repository**
 
 ```sh
 git clone https://github.com/ChrisMahlke/scaffolding.git
 cd scaffolding
 ```
 
-#### Install Dependencies
+### **Install Dependencies**
 
 ```sh
 npm install
@@ -45,9 +52,9 @@ npm install
 
 ---
 
-### 🚀 Usage
+## **🚀 Usage**
 
-#### Development Server
+### **Run the Development Server**
 
 ```sh
 npm run dev
@@ -55,7 +62,7 @@ npm run dev
 
 Starts the server with **Nodemon** for automatic reloads.
 
-#### Compiling TypeScript
+### **Compile TypeScript**
 
 ```sh
 npm run compile
@@ -63,77 +70,158 @@ npm run compile
 
 Generates JavaScript files in the `dist/` directory.
 
-#### Running Tests
+---
 
-Run Jest unit tests:
+## **✅ Understanding the Codebase (File Summaries)**
+
+This section provides an **overview of each file**, its **purpose**, and how it fits into the project.
+
+### **📜 Main Server Entry Point (`src/index.ts`)**
+
+- **Purpose:** Initializes and configures the **Express server**.
+- **Key Features:**
+  - Loads **environment variables**.
+  - Registers **middleware** (authentication, logging, error handling).
+  - Defines **routes**.
+  - Starts the **server**.
+- **Test Commands:**
+  ```sh
+  curl -X GET http://localhost:3000/
+  ```
+- **For Non-Technical Users:** This is the **main engine** of the API—it starts everything.
+
+---
+
+### **📜 Route Handling (`src/routes/index.ts` & `src/routes/userRoutes.ts`)**
+
+- **Purpose:** Defines **API routes**.
+- **Key Features:**
+  - `index.ts`: Registers **all sub-routes** (e.g., `/users`).
+  - `userRoutes.ts`: Handles **user-related API requests**.
+- **Test Commands:**
+  ```sh
+  curl -X GET http://localhost:3000/users -H "x-api-key: secret123"
+  ```
+- **For Non-Technical Users:** This is where the **URLs** for the API are defined.
+
+---
+
+### **🔐 Authentication Middleware (`src/middleware/authMiddleware.ts`)**
+
+- **Purpose:** Protects routes by requiring an **API key**.
+- **How It Works:**
+  - Reads the **API key** from `x-api-key` header.
+  - Compares it with the **expected API key** in `.env`.
+  - Returns **403 Unauthorized** if the key is missing or incorrect.
+- **Test Commands:**
+  ```sh
+  curl -X GET http://localhost:3000/users -H "x-api-key: wrong-key"
+  ```
+- **For Non-Technical Users:** Think of this as a **security guard** that checks if requests are allowed.
+
+---
+
+### **📜 Global Error Handling (`src/middleware/errorMiddleware.ts`)**
+
+- **Purpose:** Catches **unexpected errors** and returns structured **error messages**.
+- **How It Works:**
+  - Logs the error.
+  - Returns **500 Internal Server Error** when something goes wrong.
+- **Test Commands:**
+  ```sh
+  curl -X GET http://localhost:3000/non-existent-route
+  ```
+- **For Non-Technical Users:** This is like an **emergency response system** for handling crashes.
+
+---
+
+### **📜 Request Logging (`src/middleware/loggerMiddleware.ts`)**
+
+- **Purpose:** Logs **all incoming API requests**.
+- **How It Works:**
+  - Logs the **HTTP method** and **URL path**.
+- **Test Commands:** Start the server and send a request:
+  ```sh
+  npm run dev
+  curl -X GET http://localhost:3000/users -H "x-api-key: secret123"
+  ```
+  **Expected log output:**
+  ```
+  INFO  [GET] /users
+  ```
+- **For Non-Technical Users:** This **keeps track of every request** to help with debugging.
+
+---
+
+### **📜 Logger Utility (`src/utils/logger.ts`)**
+
+- **Purpose:** Configures **Pino** for structured logging.
+- **How It Works:**
+  - Uses **pretty-printing** in development.
+  - Uses **JSON format** in production.
+- **Test Commands:**
+  ```typescript
+  import { logger } from './utils/logger'
+  logger.info('✅ Server is running!')
+  ```
+- **For Non-Technical Users:** Think of this as an **event log** for the server.
+
+---
+
+### **📜 Jest & Supertest Tests (`src/__tests__/sample.test.ts`, `src/__tests__/userRoutes.test.ts`)**
+
+- **Purpose:** Ensures the API works correctly.
+- **Key Features:**
+  - `sample.test.ts`: Basic test to ensure **Jest** is working.
+  - `userRoutes.test.ts`: Validates the **/users API routes**.
+- **Test Commands:**
+  ```sh
+  npm run test
+  ```
+- **For Non-Technical Users:** These tests **automate API validation** to ensure everything works correctly.
+
+---
+
+## **🚀 Running Tests**
+
+### **Run All Tests**
 
 ```sh
 npm run test
 ```
 
-Run Jest with coverage:
+### **Run Tests with Coverage**
 
 ```sh
 npm run test:coverage
 ```
 
-Run Jest in verbose mode:
+### **Run Tests in Verbose Mode**
 
 ```sh
 npm run test -- --verbose
 ```
 
-#### Linting and Formatting
-
-Check for lint errors:
-
-```sh
-npm run lint
-```
-
-Fix lint errors:
-
-```sh
-npm run lint --fix
-```
-
-Check Prettier formatting:
-
-```sh
-npx prettier --check "src/**/*.ts"
-```
-
-Fix Prettier formatting:
-
-```sh
-npx prettier --write "src/**/*.ts"
-```
-
 ---
 
-### 📌 API Routes
+## **📌 API Routes**
 
-The project includes a **basic Express API**. The following endpoints are available:
-
-#### 1️⃣ Get all users
+### **1️⃣ Get all users**
 
 **GET `/users`**
 
 ```json
-Response:
 [
   { "id": 1, "name": "John Doe" },
   { "id": 2, "name": "Jane Doe" }
 ]
 ```
 
-#### 2️⃣ Get a specific user
+### **2️⃣ Get a specific user**
 
 **GET `/users/:id`**
 
 ```json
-Request: /users/1
-Response:
 {
   "id": 1,
   "name": "John Doe"
@@ -143,133 +231,48 @@ Response:
 If the user is not found:
 
 ```json
-Response:
-{
-  "message": "User not found"
-}
+{ "message": "User not found" }
 ```
 
 ---
 
-### 🛠️ API Testing with Supertest
-
-The API routes are **unit-tested using Jest and Supertest**.
-
-To test API functionality, run:
-
-```sh
-npm run test
-```
-
-Example test in `src/__tests__/userRoutes.test.ts`:
-
-```typescript
-it('should return a single user', async () => {
-  const res = await request(app).get('/users/1')
-  expect(res.status).toBe(200)
-  expect(res.body.name).toBe('John Doe')
-})
-```
-
----
-
-### 📂 Folder Structure
+## **📂 Folder Structure**
 
 ```
 scaffolding/
 ├── src/
-│   ├── index.ts       # Main entry file
-│   ├── routes/        # API routes
-│   │   ├── userRoutes.ts
-│   ├── utils/         # Utility functions
-│   ├── __tests__/     # Unit tests for API
-├── dist/              # Compiled TypeScript files (ignored in Git)
-├── .husky/            # Pre-commit hooks for linting
-├── .eslintrc          # ESLint configuration
-├── tsconfig.json      # TypeScript compiler settings
-├── jest.config.js     # Jest testing configuration
-├── package.json       # Project metadata & scripts
-└── README.md          # Documentation
+│   ├── index.ts         # Main entry file
+│   ├── routes/          # API routes
+│   │   ├── index.ts     # Main route manager
+│   │   ├── userRoutes.ts # User-related routes
+│   ├── middleware/      # Middleware functions
+│   │   ├── authMiddleware.ts
+│   │   ├── errorMiddleware.ts
+│   │   ├── loggerMiddleware.ts
+│   ├── utils/           # Utility functions (Logger)
+│   ├── __tests__/       # Unit tests for API
+├── dist/                # Compiled TypeScript files
+├── .husky/              # Pre-commit hooks
+├── jest.config.js       # Jest testing configuration
+├── package.json         # Project metadata & scripts
+└── README.md            # Documentation
 ```
 
 ---
 
-### 📌 Debugging Tips
+### **📌 Contributing**
 
-#### 1️⃣ Debug Express Server
-
-Add `console.log()` statements in `src/index.ts`:
-
-```typescript
-console.log('Starting Express server...')
-```
-
-Start the server and check the output:
-
-```sh
-npm run dev
-```
-
-#### 2️⃣ Debug Tests
-
-Run Jest with detailed output:
-
-```sh
-npm run test -- --verbose
-```
-
-#### 3️⃣ Debug API Requests
-
-Use **Postman**, **cURL**, or:
-
-```sh
-npx httpie get http://localhost:3000/users
-```
-
----
-
-### 📌 Git Hooks (Husky & lint-staged)
-
-Husky prevents commits with linting errors. To test:
-
-```sh
-git add .
-git commit -m "Test commit"
-```
-
-If there are lint errors, the commit will be blocked.
-
----
-
-### 📌 Contributing
-
-1. Fork the repository.
-2. Create a new branch:
+1. **Fork the repository.**
+2. **Create a new branch:**
    ```sh
    git checkout -b feature-branch
    ```
-3. Make changes and commit:
+3. **Commit changes:**
    ```sh
-   git commit -m "Add new feature"
+   git commit -m "Added new feature"
    ```
-4. Push to GitHub:
+4. **Push to GitHub:**
    ```sh
    git push origin feature-branch
    ```
-5. Open a **Pull Request**.
-
----
-
-### 📜 License
-
-This project is licensed under the **MIT License**. See `LICENSE` for details.
-
----
-
-### 🚀 Future Improvements
-
-- ✅ **Add database integration (MongoDB or PostgreSQL)**
-- ✅ **Implement authentication (JWT or OAuth)**
-- ✅ **Add more RESTful routes (POST, PUT, DELETE)**
-- ✅ **Improve error handling with middleware**
-- ✅ **Containerize the project with Docker**
+5. **Open a Pull Request.**
