@@ -6,11 +6,32 @@ import prettierPlugin from 'eslint-plugin-prettier'
 
 /** @type {import('eslint').Linter.FlatConfig[]} */
 export default [
-  { files: ['**/*.{js,mjs,cjs,ts}'] },
-  { files: ['**/*.js'], languageOptions: { sourceType: 'commonjs' } },
+  // ✅ Ignore compiled files and dependencies
+  {
+    ignores: ['dist/**', 'node_modules/**'],
+  },
+
+  // ✅ Apply linting to source files only
+  {
+    files: ['src/**/*.{js,mjs,cjs,ts}'],
+  },
+
+  // ✅ Configure JavaScript rules
+  {
+    files: ['**/*.js'],
+    languageOptions: { sourceType: 'commonjs' },
+  },
+
+  // ✅ Global environment settings
   { languageOptions: { globals: globals.node } },
+
+  // ✅ ESLint Recommended Rules
   pluginJs.configs.recommended,
+
+  // ✅ TypeScript ESLint Rules
   ...tseslint.configs.recommended,
+
+  // ✅ Prettier Formatting Rules
   prettierConfig,
   {
     plugins: { prettier: prettierPlugin },
