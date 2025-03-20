@@ -88,7 +88,7 @@ This section provides an **overview of each file**, its **purpose**, and how it 
   ```sh
   curl -X GET http://localhost:3000/
   ```
-- **For Non-Technical Users:** This is the **main engine** of the API—it starts everything.
+- This is the **main engine** of the API—it starts everything.
 
 ---
 
@@ -102,7 +102,7 @@ This section provides an **overview of each file**, its **purpose**, and how it 
   ```sh
   curl -X GET http://localhost:3000/users -H "x-api-key: secret123"
   ```
-- **For Non-Technical Users:** This is where the **URLs** for the API are defined.
+- This is where the **URLs** for the API are defined.
 
 ---
 
@@ -117,7 +117,7 @@ This section provides an **overview of each file**, its **purpose**, and how it 
   ```sh
   curl -X GET http://localhost:3000/users -H "x-api-key: wrong-key"
   ```
-- **For Non-Technical Users:** Think of this as a **security guard** that checks if requests are allowed.
+- Think of this as a **security guard** that checks if requests are allowed.
 
 ---
 
@@ -131,7 +131,7 @@ This section provides an **overview of each file**, its **purpose**, and how it 
   ```sh
   curl -X GET http://localhost:3000/non-existent-route
   ```
-- **For Non-Technical Users:** This is like an **emergency response system** for handling crashes.
+- This is like an **emergency response system** for handling crashes.
 
 ---
 
@@ -149,7 +149,7 @@ This section provides an **overview of each file**, its **purpose**, and how it 
   ```
   INFO  [GET] /users
   ```
-- **For Non-Technical Users:** This **keeps track of every request** to help with debugging.
+- This **keeps track of every request** to help with debugging.
 
 ---
 
@@ -164,7 +164,7 @@ This section provides an **overview of each file**, its **purpose**, and how it 
   import { logger } from './utils/logger'
   logger.info('✅ Server is running!')
   ```
-- **For Non-Technical Users:** Think of this as an **event log** for the server.
+- Think of this as an **event log** for the server.
 
 ---
 
@@ -178,7 +178,7 @@ This section provides an **overview of each file**, its **purpose**, and how it 
   ```sh
   npm run test
   ```
-- **For Non-Technical Users:** These tests **automate API validation** to ensure everything works correctly.
+- These tests **automate API validation** to ensure everything works correctly.
 
 ---
 
