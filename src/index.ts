@@ -38,7 +38,7 @@ dotenv.config()
 
 // ✅ Create an instance of the Express application
 const app = express()
-const PORT = process.env.PORT || 3000 // Default to port 3000 if `PORT` is not set in `.env`
+const PORT = process.env.PORT || 4000 // Default to port 3000 if `PORT` is not set in `.env`
 
 // --------------------------------------------
 // ✅ Middleware (Pre-Processing Requests)

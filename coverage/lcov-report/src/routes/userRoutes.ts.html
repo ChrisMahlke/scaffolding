@@ -97,17 +97,70 @@
 <a name='L32'></a><a href='#L32'>32</a>
 <a name='L33'></a><a href='#L33'>33</a>
 <a name='L34'></a><a href='#L34'>34</a>
-<a name='L35'></a><a href='#L35'>35</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -130,16 +183,40 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Router, Request, Response } from 'express'
-import authenticate from '../middleware/authMiddleware' // Import authentication middleware
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+ * 📌 User Routes (`src/routes/userRoutes.ts`)
+ * -------------------------------------
+ * This file defines all API routes related to **user management**.
+ * It allows retrieving a list of users or fetching a single user by ID.
+ *
+ * 🚀 Features:
+ * - Protects all `/users` routes with authentication middleware.
+ * - Returns a **list of users** (`GET /users`).
+ * - Fetches a **single user by ID** (`GET /users/:id`).
+ *
+ * 🛠️ Technologies Used:
+ * - **Express.js** → Defines HTTP endpoints.
+ * - **Middleware** → Secures routes using authentication.
+ */
 &nbsp;
+import { Router, Request, Response } from 'express'
+import authenticate from '../middleware/authMiddleware' // ✅ Import authentication middleware
+&nbsp;
+// ✅ Create a new router instance
 const router = Router()
 &nbsp;
-// ✅ Protect all /users routes with authentication middleware
+// --------------------------------------------
+// ✅ Protect All `/users` Routes with Authentication
+// --------------------------------------------
+// Middleware ensures that only authenticated requests can access these routes.
 router.use(authenticate)
 &nbsp;
-// ✅ Get all users
+// --------------------------------------------
+// ✅ Get All Users (GET `/users`)
+// --------------------------------------------
+// Returns a hardcoded list of users as an example.
 router.get('/', (req: Request, res: Response) =&gt; {
   res.json([
     { id: 1, name: 'John Doe' },
@@ -147,23 +224,27 @@ router.get('/', (req: Request, res: Response) =&gt; {
   ])
 })
 &nbsp;
-// ✅ Get a single user by ID
+// --------------------------------------------
+// ✅ Get a Single User by ID (GET `/users/:id`)
+// --------------------------------------------
+// Retrieves a specific user based on the provided ID.
 router.get('/:id', (req: Request&lt;{ id: string }&gt;, res: Response) =&gt; {
-  const userId = parseInt(req.params.id)
+  const userId = parseInt(req.params.id) // Convert the ID from string to number
   const users = [
     { id: 1, name: 'John Doe' },
     { id: 2, name: 'Jane Doe' },
   ]
-  const user = users.find((u) =&gt; u.id === userId)
+  const user = users.find((u) =&gt; u.id === userId) // Search for the user
 &nbsp;
   if (!user) {
-    res.status(404).json({ message: 'User not found' })
+    res.status(404).json({ message: 'User not found' }) // Return 404 if user doesn't exist
     return
   }
 &nbsp;
-  res.json(user)
+  res.json(user) // Return user data if found
 })
 &nbsp;
+// ✅ Export the router to be used in `index.ts`
 export default router
 &nbsp;</pre></td></tr></table></pre>
 
@@ -172,7 +253,7 @@ export default router
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-03-20T01:40:24.387Z
+                at 2025-03-24T02:36:04.905Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

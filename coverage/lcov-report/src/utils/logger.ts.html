@@ -71,21 +71,93 @@
 <a name='L6'></a><a href='#L6'>6</a>
 <a name='L7'></a><a href='#L7'>7</a>
 <a name='L8'></a><a href='#L8'>8</a>
-<a name='L9'></a><a href='#L9'>9</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L9'></a><a href='#L9'>9</a>
+<a name='L10'></a><a href='#L10'>10</a>
+<a name='L11'></a><a href='#L11'>11</a>
+<a name='L12'></a><a href='#L12'>12</a>
+<a name='L13'></a><a href='#L13'>13</a>
+<a name='L14'></a><a href='#L14'>14</a>
+<a name='L15'></a><a href='#L15'>15</a>
+<a name='L16'></a><a href='#L16'>16</a>
+<a name='L17'></a><a href='#L17'>17</a>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import pino from 'pino'
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+ * 📜 Logger Utility (`src/utils/logger.ts`)
+ * -------------------------------------
+ * This file configures a logger using `pino`, a fast and lightweight logging
+ * library. It helps developers track application events, errors, and debugging
+ * information efficiently.
+ *
+ * 🚀 Why Use Pino?
+ * - **Super fast** compared to other logging libraries (e.g., Winston).
+ * - **JSON-based logging** for structured logs.
+ * - **Pretty-printing in development** for readability.
+ * - **Optimized for production** with minimal overhead.
+ *
+ * 📌 Features:
+ * - Uses `pino-pretty` in development for formatted logs.
+ * - Uses default JSON logging in production for structured logs.
+ */
 &nbsp;
-const isDev = process.env.NODE_ENV !== 'production'
+import pino from 'pino' // ✅ Import the Pino logging library
 &nbsp;
+// ✅ Determine if the app is running in development mode
+const isDev = process.env.NODE_ENV !== 'production' // Returns `true` if NOT in production
+&nbsp;
+// ✅ Create a logger instance with appropriate settings
 export const logger = pino({
-  level: 'info',
-  transport: isDev ? { target: 'pino-pretty' } : <span class="branch-1 cbranch-no" title="branch not covered" >undefined,</span> // Use default JSON logging in production
+  level: 'info', // Logs messages at "info" level or higher (e.g., "warn", "error")
+&nbsp;
+  // ✅ Pretty-print logs in development for better readability
+  transport: isDev ? { target: 'pino-pretty' } : <span class="branch-1 cbranch-no" title="branch not covered" >undefined,</span>
+  // - If `isDev` is `true`, logs are formatted nicely using `pino-pretty`
+  // - If `isDev` is `false` (i.e., in production), logs remain in structured JSON format
 })
 &nbsp;</pre></td></tr></table></pre>
 
@@ -94,7 +166,7 @@ export const logger = pino({
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-03-20T01:40:24.387Z
+                at 2025-03-24T02:36:04.905Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
